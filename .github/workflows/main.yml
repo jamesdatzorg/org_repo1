@@ -1,0 +1,17 @@
+name: Custom Field Change Watcher
+
+on:
+  project_card:
+    types: [created, edited]
+
+jobs:
+  watch-custom-field:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for Custom Field Changes
+        run: |
+          # Add your script here to check for custom field changes
+          # For example, use GitHub API to get the card content and custom fields
+          curl -X POST -H "Content-Type: application/json" \
+          -d '{"custom_field":"change detected"}' \
+          https://stagingwebsites.info/synup/webhook
